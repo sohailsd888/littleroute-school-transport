@@ -1,0 +1,310 @@
+/* Team review: shared navigation, matching branding and quiet hover outlines. */
+html body .header-expanded .main-nav .nav-dropdown-toggle {
+  padding: 0; border: 0 !important; border-radius: 0; background: transparent !important;
+  box-shadow: none; font: 700 14px/1.5 var(--font); min-height: 38px;
+}
+html body .header-expanded .main-nav .nav-dropdown-toggle:is(:hover,:focus-visible) {
+  border: 0 !important; background: transparent !important; color: var(--secondary) !important; box-shadow: none;
+}
+html body .header-expanded .main-nav .nav-dropdown-toggle:focus-visible { outline: 2px solid var(--secondary); outline-offset: 6px; }
+html body :is(.header-expanded,.site-footer,.utility-bar) .brand-image.site-brand {
+  display: inline-flex; width: max-content; max-width: 100%; font-size: 26px; gap: 9px;
+  letter-spacing: -1.1px; color: var(--ink); padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none;
+}
+html body :is(.header-expanded,.site-footer,.utility-bar) .brand-image.site-brand .brand-mark { width: 70px; height: 56px; flex: 0 0 70px; }
+html body :is(.header-expanded,.site-footer,.utility-bar) .brand-image.site-brand .brand-mark > img { width: 78px; height: 78px; }
+html body :is(.header-expanded,.site-footer,.utility-bar) .brand-image.site-brand small { font-size: 8px; font-weight: 750; letter-spacing: 1px; margin-top: 6px; color: var(--ink); }
+html body .footer-five .footer-top-expanded { grid-template-columns: minmax(220px,1.15fr) minmax(0,.8fr) minmax(0,.9fr) minmax(0,1fr) minmax(0,1.2fr); }
+.footer-five .footer-brand > p { margin-top: 24px; }
+html body :is(.hover-card,.balanced-service-card,.mission-card,.vision-card,.dash-card,.calculator-card,.contact-hello-card):is(:hover,:focus-within) {
+  border-color: var(--secondary); box-shadow: 0 0 0 1px var(--secondary), 0 12px 30px #3282b81a;
+}
+:is(.balanced-service-card,.mission-card,.vision-card,.dash-card,.calculator-card,.contact-hello-card) { transition: border-color .2s, box-shadow .2s; }
+.cta-v2:not(.cta-v2--centered) .cta-copy > .eyebrow,
+.detail-hero--care .detail-hero-copy > .eyebrow { justify-content: flex-start; }
+
+/* A minimal masthead for the recovery and policy pages. */
+.utility-page { min-height: 100svh; background: var(--bg); }
+.utility-bar { position: relative; z-index: 30; background: var(--surface); border-bottom: 1px solid var(--line); }
+.utility-row { min-height: 94px; display: flex; align-items: center; justify-content: space-between; gap: 20px; direction: ltr; padding-block: 16px; }
+.utility-row > .brand { direction: ltr; }
+.utility-controls { display: flex; align-items: center; gap: 12px; }
+.utility-page--404 #main { min-height: calc(100svh - 94px); display: flex; }
+.utility-page--404 .notfound-hero { padding-block: clamp(40px,7vh,90px); width: 100%; display: flex; align-items: center; }
+.utility-page--404 .notfound-hero-layout { width: min(1240px,calc(100% - 104px)); }
+.utility-page--404 .error-number { font-size: clamp(52px,6vw,84px); line-height: 1; }
+.utility-page--404 h1 { font-size: clamp(36px,4.1vw,58px); line-height: 1.14; }
+.utility-page--404 .notfound-art { min-height: 310px; height: auto; aspect-ratio: 1.35; }
+.utility-page--404 .notfound-hero p:not(.eyebrow) { font-size: 17px; line-height: 1.85; max-width: 570px; }
+
+/* One accessible details/summary component, ten page-specific visual treatments. */
+.faq-reviewed { min-width: 0; }
+.faq-reviewed .faq-item { border: 1px solid var(--line); margin: 0; padding: 0; background: var(--surface); transition: border-color .2s,box-shadow .2s; }
+.faq-reviewed .faq-item:is(:hover,[open]) { border-color: var(--secondary); }
+.faq-reviewed .faq-item:focus-within { outline: 2px solid var(--secondary); outline-offset: 3px; }
+.faq-reviewed summary { display: flex; align-items: center; gap: 16px; list-style: none; cursor: pointer; padding: 23px; font: 700 16px/1.65 var(--font); color: var(--ink); }
+.faq-reviewed summary::-webkit-details-marker { display: none; }
+.faq-reviewed summary::marker { content: ''; }
+.faq-reviewed summary > .faq-marker { display: grid; place-items: center; flex: 0 0 30px; height: 30px; width: 30px; border-radius: 8px; background: var(--pale); color: var(--ink); font: 750 10px/1 var(--font); }
+.faq-reviewed summary > .faq-question { display: block; flex: 1 1 auto; font: inherit; width: auto; height: auto; min-width: 0; color: inherit; }
+.faq-reviewed summary > .faq-toggle { flex: 0 0 27px; height: 27px; width: 27px; display: grid; place-items: center; margin-inline-start: auto; background: transparent; color: inherit; border: 1px solid var(--line); border-radius: 50%; }
+.faq-toggle > .icon { width: 15px; height: 15px; transition: transform .2s; }
+.faq-reviewed details[open] .faq-toggle > .icon { transform: rotate(45deg); }
+.faq-reviewed details[open] summary > span { transform: none; }
+.faq-reviewed .faq-answer { padding: 0 23px 24px 69px; color: var(--muted); }
+[dir=rtl] .faq-reviewed .faq-answer { padding: 0 69px 24px 23px; }
+.faq-reviewed .faq-answer > p { font-size: 14px; line-height: 1.95; margin: 0; padding: 0; max-width: none; color: inherit; }
+
+/* Home 2: a navy journey board. */
+.faq--journey { padding: 16px 28px; background: var(--primary); border: 1px solid var(--secondary); border-radius: 20px; }
+.faq--journey .faq-item { background: transparent; border: 0; border-bottom: 1px solid #eaf4fc36; border-radius: 0; }
+.faq--journey .faq-item:last-child { border-bottom: 0; }
+.faq--journey summary { padding: 25px 0; color: #fff; }
+.faq--journey summary > .faq-marker { background: #eaf4fc14; color: #c2e5ff; border-radius: 50%; border: 1px solid #3282b8; }
+.faq--journey summary > .faq-toggle { border-color: #eaf4fc55; }
+.faq--journey .faq-answer { color: #d4e8f7; padding-inline-end: 0; }
+.faq--journey .faq-item:is(:hover,[open]) summary { color: #bce1fc; }
+
+/* Services: a two-column directory of question cards. */
+body[data-page=services] .faq-layout { grid-template-columns: .8fr 1.4fr; gap: 50px; align-items: start; }
+.faq--directory { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
+.faq--directory .faq-item { border-radius: 15px; }
+.faq--directory summary { flex-wrap: wrap; align-items: flex-start; padding: 22px; gap: 17px; }
+.faq--directory summary > .faq-marker { border-radius: 4px; }
+.faq--directory summary > .faq-question { order: 3; width: 100%; font-size: 16px; }
+.faq--directory summary > .faq-toggle { margin-inline-start: auto; }
+.faq--directory .faq-answer { padding: 0 22px 22px; }
+
+/* Routes: numbered stops on a route line. */
+.faq--stops { display: grid; gap: 0; border-inline-start: 2px dashed var(--secondary); padding-inline-start: 27px; }
+.faq--stops .faq-item { border: 0; border-bottom: 1px solid var(--line); background: transparent; position: relative; }
+.faq--stops summary { padding: 24px 0; }
+.faq--stops summary > .faq-marker { position: absolute; inset-inline-start: -43px; top: 27px; height: 28px; width: 28px; background: var(--surface); border: 1px solid var(--secondary); border-radius: 50%; }
+.faq--stops .faq-answer { padding-inline-start: 0; padding-inline-end: 12px; }
+.faq--stops details[open] summary > .faq-marker { background: var(--primary); color: #fff; }
+
+/* Fees: clean, perforated receipt rows. */
+.faq--receipt { border: 1px solid var(--secondary); border-radius: 16px; overflow: hidden; background: var(--surface); }
+.faq--receipt .faq-item { border: 0; border-bottom: 1px dashed var(--line); border-radius: 0; }
+.faq--receipt .faq-item:last-child { border-bottom: 0; }
+.faq--receipt summary { padding: 25px; }
+.faq--receipt summary > .faq-marker { background: var(--primary); color: #fff; border-radius: 0; width: 35px; flex-basis: 35px; height: 35px; font-size: 12px; }
+.faq--receipt .faq-item[open] { background: var(--soft); }
+.faq--receipt .faq-answer { padding-inline-start: 76px; }
+
+/* Safety policy: a checklist with a strong, calm outline. */
+.faq--checklist { display: grid; gap: 14px; }
+.faq--checklist .faq-item { border-radius: 12px; border-inline-start: 4px solid var(--secondary); }
+.faq--checklist summary > .faq-marker { border: 1px solid var(--secondary); background: transparent; border-radius: 50%; }
+.faq--checklist details[open] .faq-marker { background: var(--secondary); color: #000; }
+.faq--checklist details[open] { box-shadow: 0 7px 24px #142b4a0d; }
+
+/* Contact: generous, centered question pills. */
+body[data-page=contact] .faq-layout { display: block; max-width: 930px; }
+body[data-page=contact] .faq-layout > div:first-child { text-align: center; max-width: 620px; margin: 0 auto 34px; }
+body[data-page=contact] .faq-layout > div:first-child > .eyebrow { justify-content: center; }
+.faq--conversation { display: grid; gap: 15px; }
+.faq--conversation .faq-item { border-radius: 26px; }
+.faq--conversation summary { padding: 21px 27px; }
+.faq--conversation summary > .faq-marker { background: transparent; color: var(--muted); width: 20px; flex-basis: 20px; }
+.faq--conversation .faq-answer { padding-inline-start: 63px; padding-inline-end: 36px; }
+
+/* Daily journeys: a compact schedule, marked by large step numbers. */
+.faq--schedule { border-top: 3px solid var(--primary); }
+.faq--schedule .faq-item { background: transparent; border: 0; border-bottom: 1px solid var(--line); }
+.faq--schedule summary { padding: 26px 9px; gap: 22px; }
+.faq--schedule summary > .faq-marker { width: 40px; flex-basis: 40px; height: auto; background: transparent; color: var(--secondary); font-size: 25px; letter-spacing: -1px; }
+.faq--schedule .faq-answer { padding-inline-start: 71px; }
+.faq--schedule details[open] { background: var(--surface); }
+
+/* One-way travel: alternating directional panels. */
+.faq--direction { display: grid; gap: 17px; }
+.faq--direction .faq-item { border-radius: 4px 19px 19px 19px; }
+.faq--direction .faq-item:nth-child(even) { background: var(--pale); margin-inline-start: 24px; border-radius: 19px 4px 19px 19px; }
+.faq--direction summary > .faq-marker { background: transparent; border-bottom: 2px solid var(--secondary); border-radius: 0; }
+.faq--direction summary > .faq-toggle { border-radius: 7px; }
+
+/* Parent portal: question and answer conversation bubbles. */
+.faq--messages { display: grid; gap: 18px; }
+.faq--messages .faq-item { max-width: 94%; border-radius: 18px 18px 18px 3px; background: var(--pale); }
+.faq--messages .faq-item:nth-child(even) { margin-inline-start: auto; border-radius: 18px 18px 3px 18px; background: var(--surface); }
+.faq--messages summary > .faq-marker { background: var(--surface); border: 1px solid var(--line); border-radius: 50%; }
+.faq--messages .faq-answer { margin: 0 18px 18px; padding: 17px 20px; border-top: 1px solid var(--line); border-radius: 0 0 12px 12px; }
+
+/* Student support: an open notebook with an accent rail. */
+.faq--care { display: grid; gap: 12px; }
+.faq--care .faq-item { border-radius: 0; border-inline-start: 5px solid var(--line); }
+.faq--care .faq-item[open] { border-inline-start-color: var(--secondary); background: var(--pale); }
+.faq--care summary > .faq-marker { background: transparent; color: var(--secondary); border-radius: 0; border-bottom: 1px solid var(--secondary); }
+.faq--care summary > .faq-toggle { border-radius: 0; border-color: transparent; }
+
+/* Parent login fits the viewport. No body scrolling or clipped desktop controls. */
+body[data-page=login] { height: 100svh; min-height: 0; overflow: hidden; }
+body[data-page=login] #app { height: 100%; min-height: 0; }
+html body .login-page.login-reviewed { height: 100svh; min-height: 0; display: grid; grid-template-columns: minmax(0,1.03fr) minmax(0,1fr); overflow: hidden; }
+.login-reviewed .login-visual { position: relative; min-height: 0; overflow: hidden; }
+.login-reviewed .login-visual-content { position: relative; z-index: 1; height: 100%; min-height: 0; padding: 32px 40px; justify-content: space-between; gap: 20px; }
+.login-reviewed .login-visual-content h1 { font-size: clamp(40px,4.1vw,63px); line-height: 1.1; margin: 22px 0; }
+.login-reviewed .login-visual-content > div { margin-block: auto; }
+.login-reviewed .login-visual-content p { font-size: 16px; line-height: 1.8; }
+.login-reviewed .login-assurance { margin-top: 26px; font-size: 12px; }
+html body .login-reviewed .login-form-side { padding: 20px 38px 16px; height: 100%; min-height: 0; display: grid; grid-template-rows: auto minmax(0,1fr) auto; gap: 15px; }
+.login-reviewed .login-top { min-height: 38px; justify-content: flex-end; padding: 0; }
+.login-mobile-brand { display: none; }
+.login-reviewed .login-display-controls { display: flex; align-items: center; gap: 10px; }
+.login-reviewed .login-form-wrap { width: min(420px,100%); min-height: 0; max-height: 100%; margin: auto; padding: 0; overflow-y: auto; scrollbar-width: thin; }
+.login-reviewed .login-intro > .eyebrow { font-size: 9px; line-height: 1.65; letter-spacing: 1px; margin-bottom: 12px; }
+.login-reviewed .login-intro h2 { font-size: 35px; line-height: 1.16; letter-spacing: -1.3px; margin: 0; }
+.login-reviewed .login-intro > p:not(.eyebrow) { font-size: 14px; line-height: 1.7; margin: 12px 0 0; }
+.login-reviewed .login-fields { margin-top: 22px; }
+.login-reviewed .login-form-wrap form { gap: 13px; }
+.login-reviewed .login-form-wrap label { font-size: 12px; line-height: 1.6; gap: 6px; }
+.login-reviewed .login-form-wrap input:not([type=checkbox]) { height: 44px; min-height: 0; font-size: 14px; line-height: 1.5; padding: 10px 13px; }
+.login-reviewed .login-password-group { display: grid; gap: 6px; }
+.login-reviewed .password-field input { width: 100%; padding-inline-end: 49px !important; }
+.login-reviewed .password-field .icon-button { top: 5px; inset-inline-end: 5px; inset-inline-start: auto; width: 34px; height: 34px; }
+[dir=rtl] .login-reviewed .password-field input { padding-inline-start: 13px !important; }
+.login-reviewed .login-options { min-height: 31px; margin: 0; gap: 15px; align-items: center; }
+.login-reviewed .login-options .checkbox-label { font-size: 11px; white-space: nowrap; }
+.login-reviewed .login-options .text-button { font-size: 11px; line-height: 1.4; padding: 5px 9px; min-height: 29px; }
+.login-reviewed #login-error { font-size: 11px; line-height: 1.65; margin: 0; }
+.login-reviewed #login-error:empty { display: none; }
+.login-reviewed .login-form-wrap .btn { font-size: 13px; min-height: 44px; padding: 10px 18px; }
+.login-divider { display: flex; align-items: center; gap: 13px; margin: 17px 0 13px; color: var(--muted); font-size: 11px; }
+.login-divider:before,.login-divider:after { content: ''; height: 1px; flex: 1; background: var(--line); }
+.social-login-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.social-login-button { min-height: 42px; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 9px 14px; border: 1px solid var(--control-border); border-radius: 9px; background: var(--surface); color: var(--ink); cursor: pointer; font: 700 13px/1.5 var(--font); transition: background .2s,border-color .2s; }
+.provider-icon { width: 20px; height: 20px; flex-shrink: 0; }
+.social-login-button:is(:hover,:focus-visible) { background: var(--secondary); border-color: var(--secondary); color: #000; }
+.social-login-button:focus-visible,.login-create-link:focus-visible { outline: 2px solid var(--secondary); outline-offset: 4px; }
+.login-create-row { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 7px; margin: 17px 0 0; font-size: 12px; line-height: 1.7; color: var(--muted); }
+.login-create-link { display: inline-flex; align-items: center; gap: 5px; padding: 3px 0; border: 0; border-bottom: 1px solid var(--secondary); background: transparent; color: var(--ink); font: 750 12px/1.5 var(--font); cursor: pointer; }
+.login-create-link > .icon { height: 14px; width: 14px; }
+.login-create-link:hover { color: var(--secondary); }
+.login-reviewed .login-bottom { font-size: 10px; line-height: 1.6; margin: 0; padding: 0; gap: 15px; }
+.provider-dialog-icon { display: grid; place-items: center; height: 48px; width: 48px; border: 1px solid var(--secondary); border-radius: 12px; background: var(--pale); color: var(--ink); margin-bottom: 23px; }
+.provider-dialog-icon > .provider-icon { width: 25px; height: 25px; }
+.parent-access-form { display: grid; gap: 18px; margin-top: 24px; }
+.parent-access-form label { font-size: 13px; }
+.parent-access-form input { font-size: 14px; min-height: 43px; padding: 10px 13px; }
+.parent-access-form .access-request-note,.parent-access-form #access-request-status { font-size: 12px; line-height: 1.8; margin: 0; }
+.parent-access-form #access-request-status:empty { display: none; }
+
+@media(max-width:1180px) {
+  html body :is(.header-expanded,.site-footer,.utility-bar) .brand-image.site-brand { font-size: 25px; gap: 9px; }
+  html body :is(.header-expanded,.site-footer,.utility-bar) .brand-image.site-brand .brand-mark { width: 66px; height: 53px; flex-basis: 66px; }
+  html body :is(.header-expanded,.site-footer,.utility-bar) .brand-image.site-brand .brand-mark > img { width: 74px; height: 74px; }
+  html body :is(.header-expanded,.site-footer,.utility-bar) .brand-image.site-brand small { font-size: 7.5px; letter-spacing: .8px; }
+  html body .footer-five .footer-top-expanded { gap: 24px; }
+  .faq-reviewed summary { font-size: 15px; padding: 20px; gap: 12px; }
+  .faq-reviewed .faq-answer > p { font-size: 13px; }
+  body[data-page=services] .faq-layout { gap: 32px; grid-template-columns: .75fr 1.4fr; }
+  .faq--directory summary { font-size: 14px; padding: 19px; }
+  .faq--directory summary > .faq-question { font-size: 14px; }
+  .faq--stops summary { padding-inline: 0; }
+  .login-reviewed .login-visual-content { padding: 29px; }
+  html body .login-reviewed .login-form-side { padding-inline: 28px; }
+}
+@media(max-width:960px) {
+  html body :is(.header-expanded,.site-footer,.utility-bar) .brand-image.site-brand { font-size: 22px; gap: 6px; letter-spacing: -.8px; }
+  html body :is(.header-expanded,.site-footer,.utility-bar) .brand-image.site-brand .brand-mark { width: 54px; height: 46px; flex-basis: 54px; }
+  html body :is(.header-expanded,.site-footer,.utility-bar) .brand-image.site-brand .brand-mark > img { width: 62px; height: 62px; }
+  html body :is(.header-expanded,.site-footer,.utility-bar) .brand-image.site-brand small { font-size: 6.5px; letter-spacing: .55px; margin-top: 5px; }
+  html body .footer-five .footer-top-expanded { grid-template-columns: 1fr 1fr; gap: 35px 55px; }
+  body[data-page=services] .faq-layout { grid-template-columns: 1fr; }
+  .faq--directory { grid-template-columns: 1fr 1fr; }
+  .utility-row { min-height: 82px; }
+  .utility-page--404 #main { min-height: calc(100svh - 82px); }
+  .utility-page--404 .notfound-hero-layout { width: calc(100% - 72px); }
+  .utility-page--404 .notfound-art { min-height: 260px; }
+}
+@media(max-width:760px) {
+  .faq-reviewed summary { padding: 21px; font-size: 16px; }
+  .faq-reviewed .faq-answer > p { font-size: 14px; }
+  .faq--journey { padding-inline: 23px; }
+  .faq--journey summary,.faq--stops summary { padding-inline: 0; }
+  .faq--directory summary > .faq-question { font-size: 16px; }
+  .faq--directory .faq-answer { padding-inline: 21px; }
+  .faq--schedule summary { padding-inline: 10px; }
+  .utility-page--404 .notfound-hero-layout { grid-template-columns: 1fr; width: calc(100% - 48px); gap: 34px; }
+  .utility-page--404 .notfound-art { min-height: 0; width: min(440px,100%); aspect-ratio: 1.55; }
+  html body .login-page.login-reviewed { grid-template-columns: 1fr; }
+  .login-reviewed .login-visual { display: none; }
+  .login-reviewed .login-top { justify-content: space-between; }
+  .login-mobile-brand { display: block; }
+  .login-mobile-brand .brand-image { font-size: 20px; gap: 5px; letter-spacing: -.7px; }
+  .login-mobile-brand .brand-mark { width: 46px; height: 38px; flex-basis: 46px; }
+  .login-mobile-brand .brand-mark > img { width: 54px; height: 54px; }
+  .login-mobile-brand .brand-image small { font-size: 5px; letter-spacing: .45px; }
+}
+@media(max-width:640px) {
+  html body :is(.header-expanded,.site-footer,.utility-bar) .brand-image.site-brand { font-size: 20px; gap: 5px; }
+  html body :is(.header-expanded,.site-footer,.utility-bar) .brand-image.site-brand .brand-mark { width: 48px; height: 42px; flex-basis: 48px; }
+  html body :is(.header-expanded,.site-footer,.utility-bar) .brand-image.site-brand .brand-mark > img { width: 57px; height: 57px; }
+  html body :is(.header-expanded,.site-footer,.utility-bar) .brand-image.site-brand small { font-size: 5.5px; letter-spacing: .5px; margin-top: 5px; }
+  html body .footer-five .footer-top-expanded { gap: 29px 25px; }
+  .utility-row { min-height: 76px; padding-block: 12px; gap: 12px; }
+  .utility-controls { gap: 8px; }
+  .utility-controls .theme-toggle { width: 34px; height: 34px; }
+  .utility-page--404 #main { min-height: calc(100svh - 76px); }
+  .utility-page--404 .notfound-hero-layout { width: calc(100% - 40px); }
+  .utility-page--404 .notfound-hero { padding-block: 32px; }
+  .utility-page--404 .notfound-hero p:not(.eyebrow) { font-size: 15px; }
+  .faq-reviewed summary { padding: 19px 16px; gap: 11px; font-size: 14px; }
+  .faq-reviewed summary > .faq-marker { width: 26px; height: 26px; flex-basis: 26px; font-size: 9px; }
+  .faq-reviewed summary > .faq-toggle { width: 24px; height: 24px; flex-basis: 24px; }
+  .faq-reviewed .faq-answer { padding: 0 18px 21px; }
+  [dir=rtl] .faq-reviewed .faq-answer { padding: 0 18px 21px; }
+  .faq-reviewed .faq-answer > p { font-size: 13px; }
+  .faq--journey { padding-inline: 18px; }
+  .faq--journey summary,.faq--stops summary { padding-inline: 0; }
+  .faq--directory { grid-template-columns: 1fr; gap: 13px; }
+  .faq--directory summary { flex-wrap: nowrap; align-items: center; }
+  .faq--directory summary > .faq-question { order: 0; width: auto; font-size: 14px; }
+  .faq--stops { padding-inline-start: 25px; }
+  .faq--stops summary > .faq-marker { inset-inline-start: -40px; }
+  .faq--schedule summary > .faq-marker { font-size: 22px; width: 33px; flex-basis: 33px; }
+  .faq--direction .faq-item:nth-child(even) { margin-inline-start: 14px; }
+  .faq--conversation .faq-item { border-radius: 18px; }
+  body[data-page=contact] .faq-layout > div:first-child { margin-bottom: 28px; }
+  html body .login-reviewed .login-form-side { padding: 13px 22px 12px; gap: 12px; }
+  .login-reviewed .login-form-wrap { width: min(400px,100%); }
+  .login-reviewed .login-intro h2 { font-size: 32px; }
+  .login-reviewed .login-intro > p:not(.eyebrow) { font-size: 13px; }
+  .login-reviewed .login-display-controls { gap: 7px; }
+  .login-reviewed .login-display-controls .theme-toggle { width: 33px; height: 33px; }
+  .login-reviewed .login-display-controls .direction-toggle { height: 33px; font-size: 10px; }
+}
+@media(max-height:720px) {
+  .login-reviewed .login-intro h2 { font-size: 29px; }
+  .login-reviewed .login-intro > .eyebrow { margin-bottom: 9px; }
+  .login-reviewed .login-intro > p:not(.eyebrow) { margin-top: 9px; font-size: 13px; }
+  .login-reviewed .login-fields { margin-top: 15px; }
+  .login-reviewed .login-form-wrap form { gap: 10px; }
+  .login-reviewed .login-form-wrap input:not([type=checkbox]) { height: 40px; padding-block: 8px; }
+  .login-reviewed .password-field .icon-button { top: 3px; }
+  .login-reviewed .login-options { min-height: 28px; }
+  .login-reviewed .login-form-wrap .btn { min-height: 40px; padding-block: 8px; }
+  .login-divider { margin: 12px 0 10px; }
+  .social-login-button { min-height: 38px; padding-block: 7px; }
+  .login-create-row { margin-top: 12px; }
+  .login-reviewed .login-visual-content { padding-block: 23px; }
+}
+@media(max-height:520px) and (min-width:481px) {
+  html body .login-page.login-reviewed { grid-template-columns: 1fr; }
+  .login-reviewed .login-visual { display: none; }
+  html body .login-reviewed .login-form-side { padding: 10px 25px; gap: 8px; }
+  .login-reviewed .login-top { justify-content: space-between; min-height: 32px; }
+  .login-mobile-brand { display: block; }
+  .login-reviewed .login-form-wrap { display: grid; grid-template-columns: minmax(0,.9fr) minmax(0,1.1fr); gap: 0 30px; max-width: 760px; width: 100%; }
+  .login-reviewed .login-intro { grid-column: 1; grid-row: 1; }
+  .login-reviewed .login-fields { grid-column: 2; grid-row: 1/4; margin: 0; }
+  .login-reviewed .login-social { grid-column: 1; grid-row: 2; }
+  .login-reviewed .login-create-row { grid-column: 1; grid-row: 3; font-size: 11px; }
+  .login-reviewed .login-intro h2 { font-size: 25px; }
+  .login-reviewed .login-intro > p:not(.eyebrow) { font-size: 12px; }
+  .login-reviewed .login-bottom { font-size: 9px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  :is(.balanced-service-card,.mission-card,.vision-card,.dash-card,.calculator-card,.contact-hello-card,.faq-item,.faq-toggle > .icon,.social-login-button) { transition: none; }
+}
