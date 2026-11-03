@@ -68,3 +68,33 @@
 @media(max-width:360px) {
   .faq--directory summary { min-height: 110px; }
 }
+/* Balanced contact panels: one shared introduction, equal columns and baselines. */
+.contact-enquiry-heading { align-items: end; gap: 24px 48px; }
+.contact-enquiry-heading h2 { max-width: 18ch; }
+.contact-enquiry-heading > p { max-width: 47ch; }
+.contact-enquiry-grid { grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 32px; align-items: stretch; }
+.contact-info-panel { display: flex; flex-direction: column; min-width: 0; }
+.contact-info-panel .contact-item { padding: 17px 0; }
+.contact-info-panel .contact-item:first-child { border-top: 0; padding-top: 0; }
+.contact-enquiry-grid > .enquiry-form { min-width: 0; align-content: start; }
+.contact-area-map { display: flex; flex-direction: column; flex: 1; margin: 12px 0 0; min-width: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 18px; background: var(--surface); }
+.contact-area-map iframe { display: block; width: 100%; height: 260px; min-height: 240px; flex: 1 1 260px; border: 0; background: var(--soft); }
+.contact-area-map figcaption { display: flex; flex: 0 0 auto; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px 18px; padding: 17px 18px; color: var(--ink); border-top: 1px solid var(--line); }
+.contact-area-map figcaption > div { min-width: 0; }
+.contact-area-map figcaption strong { display: block; font-size: 15px; line-height: 1.5; }
+.contact-area-map figcaption span { display: block; margin-top: 3px; font-size: 12px; line-height: 1.6; color: var(--muted); }
+.contact-area-map figcaption a { display: inline-flex; align-items: center; gap: 8px; padding: 7px 10px; border: 1px solid var(--line); border-radius: 8px; color: var(--ink); font-size: 13px; font-weight: 700; transition: border-color .2s, color .2s; }
+.contact-area-map figcaption a:hover, .contact-area-map figcaption a:focus-visible { border-color: #3282b8; color: #3282b8; }
+.contact-area-map figcaption a:focus-visible { outline: 2px solid #3282b8; outline-offset: 3px; }
+.contact-area-map figcaption a .icon { width: 16px; height: 16px; }
+@media(max-width:800px) {
+  .contact-enquiry-heading { display: block; }
+  .contact-enquiry-heading > p { max-width: 62ch; margin-top: 18px; }
+  .contact-enquiry-grid { grid-template-columns: minmax(0,1fr); gap: 28px; }
+  .contact-area-map { flex: none; }
+  .contact-area-map iframe { height: 280px; flex: none; }
+}
+@media(max-width:480px) {
+  .contact-area-map iframe { height: 240px; }
+  .contact-area-map figcaption { padding: 16px; }
+}
