@@ -1,6 +1,6 @@
 /* Equal question-card geometry without changing the distinct FAQ designs. */
-.faq--directory { align-items: stretch; grid-auto-rows: minmax(0,auto); }
-.faq--directory > .faq-item { align-self: stretch; }
+.faq--directory { align-items: start; grid-auto-rows: minmax(0,auto); }
+.faq--directory > .faq-item { align-self: start; }
 .faq--directory summary {
   display: grid; grid-template-columns: minmax(0,1fr) auto;
   grid-template-rows: 30px minmax(3.3em,auto); align-content: start;
@@ -97,4 +97,31 @@
 @media(max-width:480px) {
   .contact-area-map iframe { height: 240px; }
   .contact-area-map figcaption { padding: 16px; }
+}
+
+/* Services: two readable lines per question, without clipping the wording. */
+body[data-page=services] .faq--directory summary > .faq-question {
+  min-height: 3.3em; font-family: var(--font); font-weight: 700;
+  line-height: 1.65; transform: none; transition: color .2s;
+}
+/* Only the plus icon rotates when an answer opens. Question text stays horizontal. */
+body[data-page=services] .faq--directory details[open] summary > .faq-question { transform: none; }
+/* The outer fee plans use secondary outlined actions; the featured plan stays primary. */
+html body[data-page=fees] .price-grid .price-card > .btn.btn-secondary {
+  background: var(--surface) !important; color: var(--ink) !important;
+  border-color: var(--secondary) !important;
+}
+html body[data-page=fees] .price-grid .price-card > .btn.btn-secondary:is(:hover,:focus-visible) {
+  background: var(--secondary) !important; color: #000 !important;
+  border-color: var(--secondary) !important;
+}
+/* Account creation is a regular full-screen page using the same shell as sign-in. */
+body[data-page=create-account] { height: 100svh; min-height: 0; overflow: hidden; }
+body[data-page=create-account] #app { height: 100%; min-height: 0; }
+.create-account-page .parent-access-form { margin: 0; }
+.create-account-page .parent-access-form .access-request-note,
+.create-account-page .parent-access-form #access-request-status { font-size: 12px; line-height: 1.65; margin: 0; }
+.create-account-page #access-request-status:not(:empty) { padding: 10px 12px; border: 1px solid var(--secondary); border-radius: 8px; background: var(--soft); color: var(--ink); }
+@media(max-height:520px) and (min-width:481px) {
+  .create-account-page .login-create-row { grid-column: 1; grid-row: 2; align-self: start; justify-content: start; }
 }

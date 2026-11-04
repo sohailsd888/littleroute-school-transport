@@ -5,9 +5,9 @@ import { fileURLToPath } from 'node:url';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const source=fs.readFileSync(path.join(root,'dist/app.js'),'utf8');
 const functions=source.slice(0,source.indexOf('const renderers='));
-for(const page of ['404','daily-school-transport','one-way-transport','parent-transport-portal','student-safety-support','index','home2','about','services','routes','fees','safety','contact','privacy','login','dashboard']){
+for(const page of ['404','daily-school-transport','one-way-transport','parent-transport-portal','student-safety-support','index','home2','about','services','routes','fees','safety','contact','privacy','login','create-account','dashboard']){
  const ctx=vm.createContext({document:{body:{dataset:{page}}},localStorage:{getItem:()=>null},setTimeout,clearTimeout,console});
- vm.runInContext(functions+`;globalThis.html=${page==='login'?'loginPage()':page==='dashboard'?'dashboard()':`publicLayout((${({'404':'notFoundPage','daily-school-transport':"()=>serviceDetailPage('daily-school-transport')",'one-way-transport':"()=>serviceDetailPage('one-way-transport')",'parent-transport-portal':"()=>serviceDetailPage('parent-transport-portal')",'student-safety-support':"()=>serviceDetailPage('student-safety-support')",index:'home',home2:'home2',about:'aboutPage',services:'servicesPage',routes:'routesPage',fees:'feesPage',safety:'safetyPage',contact:'contactPage',privacy:'privacyPage'})[page]})())`};`,ctx);
+ vm.runInContext(functions+`;globalThis.html=${page==='login'?'loginPage()':page==='create-account'?'createAccountPage()':page==='dashboard'?'dashboard()':`publicLayout((${({'404':'notFoundPage','daily-school-transport':"()=>serviceDetailPage('daily-school-transport')",'one-way-transport':"()=>serviceDetailPage('one-way-transport')",'parent-transport-portal':"()=>serviceDetailPage('parent-transport-portal')",'student-safety-support':"()=>serviceDetailPage('student-safety-support')",index:'home',home2:'home2',about:'aboutPage',services:'servicesPage',routes:'routesPage',fees:'feesPage',safety:'safetyPage',contact:'contactPage',privacy:'privacyPage'})[page]})())`};`,ctx);
  const file=path.join(root,`dist/${page}.html`);
  let html=fs.readFileSync(file,'utf8');
  const start=html.indexOf('<div id="app">');
@@ -16,4 +16,4 @@ for(const page of ['404','daily-school-transport','one-way-transport','parent-tr
  if(!html.includes('<noscript>'))html=html.replace('</head>','<noscript><style>.reveal{opacity:1;transform:none}</style></noscript></head>');
  fs.writeFileSync(file,html);
 }
-console.log('Rendered 16 pages. No dependencies or external build tools required.');
+console.log('Rendered 17 pages. No dependencies or external build tools required.');
